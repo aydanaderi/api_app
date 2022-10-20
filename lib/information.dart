@@ -28,36 +28,34 @@ class _InformationPageState extends State<InformationPage> with TickerProviderSt
 
     return Scaffold(
       backgroundColor : whitelight,
-      appBar: PreferredSize(
-        preferredSize: Size.fromHeight(60),
-        child: AppBar(
-          backgroundColor: blueDark,
-          title: Center(
-            child: Text(
-              'پرونده های من',
-              style: TextStyle(
-                color: white,
-                fontFamily: 'IRANSansFaNum',
-                fontSize: 18,
-                fontWeight: FontWeight.w500,
-              ),
-            ),
-          ),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.vertical(
-              bottom: Radius.circular(25),
-            ),
-          ),
-          actions: [
-            IconButton(
-              icon: Icon(
-                Icons.menu
-              ),
+      appBar: AppBar(
+        backgroundColor: blueDark,
+        title: Align(
+          alignment: Alignment.center,
+          child: Text(
+            'پرونده های من',
+            style: TextStyle(
               color: white,
-              onPressed: (){},
+              fontFamily: 'IRANSansFaNum',
+              fontSize: 18,
+              fontWeight: FontWeight.w500,
             ),
-          ],
+          ),
         ),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(
+            bottom: Radius.circular(25),
+          ),
+        ),
+        actions: [
+          IconButton(
+            icon: Icon(
+                Icons.menu
+            ),
+            color: white,
+            onPressed: (){},
+          ),
+        ],
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
