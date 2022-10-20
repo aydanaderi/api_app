@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hexagon/hexagon.dart';
 
 class InformationPage extends StatefulWidget {
 
@@ -16,6 +17,9 @@ class _InformationPageState extends State<InformationPage> with TickerProviderSt
   Color grayquestion = Color.fromRGBO(112, 112, 112, 1);
   Color grayinfo = Color.fromRGBO(80, 80, 80, 1);
   Color whitecontainer = Color.fromRGBO(246, 246, 248, 1);
+  Color green = Color.fromRGBO(28, 174, 129, 1);
+  Color shadow = Color.fromRGBO(168, 166, 166, 0.24);
+
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +29,7 @@ class _InformationPageState extends State<InformationPage> with TickerProviderSt
     return Scaffold(
       backgroundColor : whitelight,
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(84),
+        preferredSize: Size.fromHeight(60),
         child: AppBar(
           backgroundColor: blueDark,
           title: Center(
@@ -56,34 +60,37 @@ class _InformationPageState extends State<InformationPage> with TickerProviderSt
         ),
       ),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Padding(
-            padding: const EdgeInsets.all(16),
-            child: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(50),
-                color: blueDark,
-              ),
-              constraints: BoxConstraints.expand(height: 50),
-              child: TabBar(
-                  controller: _tabcontroller,
-                  labelColor: blueDark,
-                  unselectedLabelColor: white,
-                  tabs: [
-                    Tab(
-                      text: "اعلام خسارت",
-                    ),
-                    Tab(
-                      text: "بازدید بدنه",
-                    ),
-                    Tab(
-                      text: "صدور بیمه بدنه",
-                    ),
-                  ],
-                indicator: ShapeDecoration(
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(50))),
-                  color: white,
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.only(left: 16,right: 16,top: 16),
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(50),
+                  color: blueDark,
+                ),
+                constraints: BoxConstraints.expand(height: 50),
+                child: TabBar(
+                    controller: _tabcontroller,
+                    labelColor: blueDark,
+                    unselectedLabelColor: white,
+                    tabs: [
+                      Tab(
+                        text: "اعلام خسارت",
+                      ),
+                      Tab(
+                        text: "بازدید بدنه",
+                      ),
+                      Tab(
+                        text: "صدور بیمه بدنه",
+                      ),
+                    ],
+                  indicator: ShapeDecoration(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(50))),
+                    color: white,
+                  ),
                 ),
               ),
             ),
@@ -103,36 +110,38 @@ class _InformationPageState extends State<InformationPage> with TickerProviderSt
                   ]),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.all(16),
-            child: Container(
-              color: white,
-              child: Row(
-                children: [
-                  IconButton(
-                    icon: Icon(
-                      Icons.search,
-                      color: gray,
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.only(left: 16,right: 16),
+              child: Container(
+                color: white,
+                child: Row(
+                  children: [
+                    IconButton(
+                      icon: Icon(
+                        Icons.search,
+                        color: gray,
+                      ),
+                      onPressed: (){},
                     ),
-                    onPressed: (){},
-                  ),
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 70,right: 5),
-                      child: Container(
-                        child: Text(
-                          'شناسه پرونده را وارد کنید',
-                          style: TextStyle(
-                            color: gray,
-                            fontFamily: 'IRANSansFaNum',
-                            fontSize: 12,
-                            fontWeight: FontWeight.w500,
+                    Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 70,right: 5),
+                        child: Container(
+                          child: Text(
+                            'شناسه پرونده را وارد کنید',
+                            style: TextStyle(
+                              color: gray,
+                              fontFamily: 'IRANSansFaNum',
+                              fontSize: 12,
+                              fontWeight: FontWeight.w500,
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                  )
-                ],
+                    )
+                  ],
+                ),
               ),
             ),
           ),
@@ -143,30 +152,29 @@ class _InformationPageState extends State<InformationPage> with TickerProviderSt
               child: Column(
                 children: [
                   Container(
-                    child: Center(
-                      child: Stack(
-                        alignment: Alignment.center,
-                        children: [
-                          IconButton(
+                    child: Stack(
+                      alignment: Alignment.center,
+                      children: [
+                        IconButton(
                           icon: Icon(
-                          Icons.bookmark_sharp,
-                          color: blueDark,
-                          size: 50,
+                            Icons.bookmark_sharp,
+                            color: blueDark,
+                            size: 50,
+                          ),
+                          onPressed: (){},
                         ),
-                        onPressed: (){},
-                      ),
-                          Center(
-                            child: Text(
-                              'خودم',
-                              style: TextStyle(
-                                color: white,
-                                fontSize: 10,
-                                fontFamily: 'IRANSansFaNum',
-                              ),
+                        Center(
+                          child: Text(
+                            'خودم',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: white,
+                              fontSize: 10,
+                              fontFamily: 'IRANSansFaNum',
                             ),
-                          )
-                        ],
-                      ),
+                          ),
+                        )
+                      ],
                     ),
                   ),
                   Row(
@@ -347,7 +355,6 @@ class _InformationPageState extends State<InformationPage> with TickerProviderSt
                             fontSize: 12,
                             fontWeight: FontWeight.w400,
                           ),
-
                         ),
                         Icon(
                           Icons.watch_later,
@@ -359,6 +366,137 @@ class _InformationPageState extends State<InformationPage> with TickerProviderSt
                         ],
                       ),
                     ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          Expanded(
+            child: Row(
+              children: [
+                Column(
+                  children: [
+                    HexagonWidget.pointy(
+                      width: 41,
+                      cornerRadius: 8,
+                      color: green,
+                      elevation: 8,
+                      child: Icon(
+                        Icons.done,
+                        color: white,
+                      ),
+                    ),
+                    Text(
+                      'انجام شد',
+                      style: TextStyle(
+                        color: green,
+                        fontFamily: 'IRANSansFaNum',
+                        fontSize: 12,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    )
+                  ],
+                ),
+                ElevatedButton(
+                  style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all<Color>(white),
+                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                          RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8),
+                              side: BorderSide(color: blueDark)
+                          ),
+                      )),
+                  child: Text(
+                    'ورود به صفحه پرونده',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: blueDark,
+                      fontFamily: 'IRANSansFaNum',
+                      fontSize: 12,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                  onPressed: () {},
+                ),
+              ],
+            ),
+          ),
+          Expanded(
+            child: Container(
+              color: white,
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Column(
+                      children: [
+                        IconButton(
+                          icon: Icon(Icons.assignment_return_rounded),
+                          color: gray,
+                          onPressed: () {},
+                        ),
+                        Text(
+                          'ارسال نواقص',
+                          style: TextStyle(
+                            color: gray,
+                            fontFamily: 'IRANSansFaNum',
+                            fontSize: 10,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  Column(
+                    children: [
+                      IconButton(
+                        icon: Icon(Icons.home_rounded),
+                        onPressed: () {},
+                        color: gray,
+                      ),
+                      Text(
+                        'خانه',
+                        style: TextStyle(
+                          color: gray,
+                          fontFamily: 'IRANSansFaNum',
+                          fontSize: 10,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      )
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(
+                          boxShadow: [
+                            BoxShadow(
+                              color: shadow,
+                              blurRadius: 5,
+                            ),
+                          ],
+                        ),
+                        child: HexagonWidget.pointy(
+                          width: 41,
+                          cornerRadius: 8,
+                          color: white,
+                          elevation: 8,
+                          child: IconButton(
+                            icon: Icon(Icons.text_snippet),
+                            onPressed: () {},
+                            color: blueDark,
+                          ),
+                        ),
+                      ),
+                      Text(
+                        'پرونده های من',
+                        style: TextStyle(
+                          color: blueDark,
+                          fontFamily: 'IRANSansFaNum',
+                          fontSize: 10,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      )
+                    ],
                   ),
                 ],
               ),
