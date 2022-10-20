@@ -15,6 +15,8 @@ class _InformationPageState extends State<InformationPage> {
   Color graydot = Color.fromRGBO(183, 183, 183, 1);
   Color grayquestion = Color.fromRGBO(112, 112, 112, 1);
   Color grayinfo = Color.fromRGBO(80, 80, 80, 1);
+  Color whitecontainer = Color.fromRGBO(246, 246, 248, 1);
+
   @override
   Widget build(BuildContext context) {
     
@@ -211,6 +213,78 @@ class _InformationPageState extends State<InformationPage> {
                       ),
                     ],
                   ),
+                  Padding(
+                    padding: const EdgeInsets.all(16),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: whitecontainer,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Column(
+                        children: [
+                      Row(
+                      children: [
+                      SizedBox(width: 10),
+                      Text(
+                        'تائید شده توسط نماینده',
+                        style: TextStyle(
+                          color: grayinfo,
+                          fontFamily: 'IRANSansFaNum',
+                          fontSize: 12,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      SizedBox(width: 13),
+                      Text(
+                        'وضعیت پرونده',
+                        style: TextStyle(
+                          color: grayquestion,
+                          fontFamily: 'IRANSansFaNum',
+                          fontSize: 12,
+                          fontWeight: FontWeight.w400,
+                        ),
+
+                      ),
+                      Icon(
+                        Icons.text_snippet,
+                        size: 19,
+                        color: graydot,
+                      ),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Text(
+                          '14:11-1401-06-01',
+                          style: TextStyle(
+                            color: grayinfo,
+                            fontFamily: 'IRANSansFaNum',
+                            fontSize: 8,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                        SizedBox(width: 20),
+                        Text(
+                          'زمان بازدید ',
+                          style: TextStyle(
+                            color: grayquestion,
+                            fontFamily: 'IRANSansFaNum',
+                            fontSize: 12,
+                            fontWeight: FontWeight.w400,
+                          ),
+
+                        ),
+                        Icon(
+                          Icons.watch_later,
+                          size: 15,
+                          color: graydot,
+                        ),
+                      ],
+                    ),
+                        ],
+                      ),
+                    ),
+                  )
                 ],
               ),
             ),
