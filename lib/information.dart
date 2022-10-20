@@ -6,7 +6,7 @@ class InformationPage extends StatefulWidget {
   _InformationPageState createState() => _InformationPageState();
 }
 
-class _InformationPageState extends State<InformationPage> {
+class _InformationPageState extends State<InformationPage> with TickerProviderStateMixin{
 
   Color blueDark = Color.fromRGBO(28, 72, 112, 1);
   Color white = Color.fromRGBO(255, 255, 255, 1);
@@ -19,7 +19,9 @@ class _InformationPageState extends State<InformationPage> {
 
   @override
   Widget build(BuildContext context) {
-    
+
+    TabController _tabcontroller = TabController(length: 3,vsync: this);
+
     return Scaffold(
       backgroundColor : whitelight,
       appBar: PreferredSize(
@@ -55,6 +57,52 @@ class _InformationPageState extends State<InformationPage> {
       ),
       body: Column(
         children: [
+          Padding(
+            padding: const EdgeInsets.all(16),
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(50),
+                color: blueDark,
+              ),
+              constraints: BoxConstraints.expand(height: 50),
+              child: TabBar(
+                  controller: _tabcontroller,
+                  labelColor: blueDark,
+                  unselectedLabelColor: white,
+                  tabs: [
+                    Tab(
+                      text: "اعلام خسارت",
+                    ),
+                    Tab(
+                      text: "بازدید بدنه",
+                    ),
+                    Tab(
+                      text: "صدور بیمه بدنه",
+                    ),
+                  ],
+                indicator: ShapeDecoration(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(50))),
+                  color: white,
+                ),
+              ),
+            ),
+          ),
+          Expanded(
+            child: Container(
+              child: TabBarView(
+                  controller: _tabcontroller,
+                  children: [
+                    Container(
+                    ),
+                    Container(
+                      child: Text("Articles Body"),
+                    ),
+                    Container(
+                    ),
+                  ]),
+            ),
+          ),
           Padding(
             padding: const EdgeInsets.all(16),
             child: Container(
@@ -311,11 +359,11 @@ class _InformationPageState extends State<InformationPage> {
                         ],
                       ),
                     ),
-                  )
+                  ),
                 ],
               ),
             ),
-          )
+          ),
         ],
       ),
     );
