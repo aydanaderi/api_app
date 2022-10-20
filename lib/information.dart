@@ -31,6 +31,11 @@ class _InformationPageState extends State<InformationPage> {
               ),
             ),
           ),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.vertical(
+              bottom: Radius.circular(25),
+            ),
+          ),
           actions: [
             IconButton(
               icon: Icon(
