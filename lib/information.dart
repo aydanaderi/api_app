@@ -28,6 +28,7 @@ class _InformationPageState extends State<InformationPage> with TickerProviderSt
 
     return Scaffold(
       backgroundColor : whitelight,
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         backgroundColor: blueDark,
         title: Align(
@@ -149,155 +150,160 @@ class _InformationPageState extends State<InformationPage> with TickerProviderSt
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(16),
+            padding: const EdgeInsets.all(15),
             child: Container(
               color: white,
               child: Column(
                 children: [
                   Container(
-                    child: Stack(
-                      alignment: Alignment.center,
+                    alignment: Alignment.topLeft,
+                    child: IconButton(
+                      icon: Icon(
+                        Icons.bookmark_sharp,
+                        color: blueDark,
+                        size: 50,
+                      ),
+                      onPressed: (){},
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        IconButton(
-                          icon: Icon(
-                            Icons.bookmark_sharp,
-                            color: blueDark,
-                            size: 50,
+                        Text(
+                          '0iajz4o474',
+                          style: TextStyle(
+                            color: grayinfo,
+                            fontFamily: 'IRANSansFaNum',
+                            fontSize: 12,
                           ),
-                          onPressed: (){},
                         ),
-                        Center(
-                          child: Text(
-                            'خودم',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              color: white,
-                              fontSize: 10,
-                              fontFamily: 'IRANSansFaNum',
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Text(
+                              'شناسه پرونده',
+                              style: TextStyle(
+                                color: grayquestion,
+                                fontFamily: 'IRANSansFaNum',
+                                fontSize: 12,
+                              ),
                             ),
-                          ),
-                        )
+                            Icon(
+                              Icons.circle,
+                              size: 8,
+                              color: graydot,
+                            ),
+                          ],
+                        ),
                       ],
                     ),
                   ),
-                  Row(
-                    children: [
-                      SizedBox(width: 10),
-                      Text(
-                        '0iajz4o474',
-                        style: TextStyle(
-                          color: grayinfo,
-                          fontFamily: 'IRANSansFaNum',
-                          fontSize: 12,
-                          fontWeight: FontWeight.w500,
+                  Padding(
+                    padding: const EdgeInsets.all(8),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'محمدعلی مراد بیگ زاده',
+                          style: TextStyle(
+                            color: grayinfo,
+                            fontFamily: 'IRANSansFaNum',
+                            fontSize: 12,
+                          ),
                         ),
-                      ),
-                      SizedBox(width: 50),
-                      Text(
-                        'شناسه پرونده ',
-                        style: TextStyle(
-                          color: grayquestion,
-                          fontFamily: 'IRANSansFaNum',
-                          fontSize: 12,
-                          fontWeight: FontWeight.w400,
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Text(
+                              'نام مشتری ',
+                              style: TextStyle(
+                                color: grayquestion,
+                                fontFamily: 'IRANSansFaNum',
+                                fontSize: 12,
+                              ),
+                            ),
+                            Icon(
+                              Icons.circle,
+                              size: 8,
+                              color: graydot,
+                            ),
+                          ],
                         ),
-
-                      ),
-                      Icon(
-                        Icons.circle,
-                        size: 8,
-                        color: graydot,
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                  Row(
-                    children: [
-                      SizedBox(width: 10),
-                      Text(
-                        'محمدعلی مراد بیگ زاده',
-                        style: TextStyle(
-                          color: grayinfo,
-                          fontFamily: 'IRANSansFaNum',
-                          fontSize: 12,
-                          fontWeight: FontWeight.w500,
+                  Padding(
+                    padding: const EdgeInsets.all(8),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          '09127825671',
+                          style: TextStyle(
+                            color: grayinfo,
+                            fontFamily: 'IRANSansFaNum',
+                            fontSize: 12,
+                          ),
                         ),
-                      ),
-                      SizedBox(width: 50),
-                      Text(
-                        'نام مشتری ',
-                        style: TextStyle(
-                          color: grayquestion,
-                          fontFamily: 'IRANSansFaNum',
-                          fontSize: 12,
-                          fontWeight: FontWeight.w400,
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Text(
+                              'تلفن همراه',
+                              style: TextStyle(
+                                color: grayquestion,
+                                fontFamily: 'IRANSansFaNum',
+                                fontSize: 12,
+                              ),
+                            ),
+                            Icon(
+                              Icons.circle,
+                              size: 8,
+                              color: graydot,
+                            ),
+                          ],
                         ),
-
-                      ),
-                      Icon(
-                        Icons.circle,
-                        size: 8,
-                        color: graydot,
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                  Row(
-                    children: [
-                      SizedBox(width: 10),
-                      Text(
-                        '09127825671',
-                        style: TextStyle(
-                          color: grayinfo,
-                          fontFamily: 'IRANSansFaNum',
-                          fontSize: 12,
-                          fontWeight: FontWeight.w500,
-                        ),
+                  Padding(
+                    padding: const EdgeInsets.all(8),
+                    child: Container(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            'شهرک غرب، فاز 4، زرافشان، خیابان شجریان، پلاک 13، واحد 8',
+                            style: TextStyle(
+                              color: grayinfo,
+                              fontFamily: 'IRANSansFaNum',
+                              fontSize: 8,
+                            ),
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Text(
+                                'محل بازدید ',
+                                style: TextStyle(
+                                  color: grayquestion,
+                                  fontFamily: 'IRANSansFaNum',
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                              Icon(
+                                Icons.circle,
+                                size: 8,
+                                color: graydot,
+                              ),
+                            ],
+                          ),
+                        ],
                       ),
-                      SizedBox(width: 50),
-                      Text(
-                        'تلفن همراه',
-                        style: TextStyle(
-                          color: grayquestion,
-                          fontFamily: 'IRANSansFaNum',
-                          fontSize: 12,
-                          fontWeight: FontWeight.w400,
-                        ),
-
-                      ),
-                      Icon(
-                        Icons.circle,
-                        size: 8,
-                        color: graydot,
-                      ),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      Text(
-                        'شهرک غرب، فاز 4، زرافشان، خیابان شجریان، پلاک 13، واحد 8',
-                        style: TextStyle(
-                          color: grayinfo,
-                          fontFamily: 'IRANSansFaNum',
-                          fontSize: 8,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                      SizedBox(width: 20),
-                      Text(
-                        'محل بازدید ',
-                        style: TextStyle(
-                          color: grayquestion,
-                          fontFamily: 'IRANSansFaNum',
-                          fontSize: 12,
-                          fontWeight: FontWeight.w400,
-                        ),
-
-                      ),
-                      Icon(
-                        Icons.circle,
-                        size: 8,
-                        color: graydot,
-                      ),
-                    ],
+                    ),
                   ),
                   Padding(
                     padding: const EdgeInsets.all(16),
@@ -309,8 +315,8 @@ class _InformationPageState extends State<InformationPage> with TickerProviderSt
                       child: Column(
                         children: [
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                      SizedBox(width: 10),
                       Text(
                         'تائید شده توسط نماینده',
                         style: TextStyle(
@@ -320,25 +326,28 @@ class _InformationPageState extends State<InformationPage> with TickerProviderSt
                           fontWeight: FontWeight.w500,
                         ),
                       ),
-                      SizedBox(width: 13),
-                      Text(
-                        'وضعیت پرونده',
-                        style: TextStyle(
-                          color: grayquestion,
-                          fontFamily: 'IRANSansFaNum',
-                          fontSize: 12,
-                          fontWeight: FontWeight.w400,
-                        ),
-
-                      ),
-                      Icon(
-                        Icons.text_snippet,
-                        size: 19,
-                        color: graydot,
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Text(
+                            'وضعیت پرونده',
+                            style: TextStyle(
+                              color: grayquestion,
+                              fontFamily: 'IRANSansFaNum',
+                              fontSize: 12,
+                            ),
+                          ),
+                          Icon(
+                            Icons.text_snippet,
+                            size: 19,
+                            color: graydot,
+                          ),
+                        ],
                       ),
                       ],
                     ),
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
                           '14:11-1401-06-01',
@@ -349,20 +358,23 @@ class _InformationPageState extends State<InformationPage> with TickerProviderSt
                             fontWeight: FontWeight.w500,
                           ),
                         ),
-                        SizedBox(width: 20),
-                        Text(
-                          'زمان بازدید ',
-                          style: TextStyle(
-                            color: grayquestion,
-                            fontFamily: 'IRANSansFaNum',
-                            fontSize: 12,
-                            fontWeight: FontWeight.w400,
-                          ),
-                        ),
-                        Icon(
-                          Icons.watch_later,
-                          size: 15,
-                          color: graydot,
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Text(
+                              'زمان بازدید ',
+                              style: TextStyle(
+                                color: grayquestion,
+                                fontFamily: 'IRANSansFaNum',
+                                fontSize: 12,
+                              ),
+                            ),
+                            Icon(
+                              Icons.watch_later,
+                              size: 15,
+                              color: graydot,
+                            ),
+                          ],
                         ),
                       ],
                     ),
