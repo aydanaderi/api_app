@@ -31,7 +31,7 @@ class _InformationPageState extends State<InformationPage> with TickerProviderSt
       appBar: AppBar(
         backgroundColor: blueDark,
         title: Align(
-          alignment: Alignment.center,
+          alignment: Alignment.bottomCenter,
           child: Text(
             'پرونده های من',
             style: TextStyle(
@@ -48,31 +48,43 @@ class _InformationPageState extends State<InformationPage> with TickerProviderSt
           ),
         ),
         actions: [
-          IconButton(
-            icon: Icon(
-                Icons.menu
+          Align(
+            alignment: Alignment.bottomRight,
+            child: IconButton(
+              icon: Icon(
+                  Icons.menu
+              ),
+              color: white,
+              onPressed: (){},
             ),
-            color: white,
-            onPressed: (){},
           ),
         ],
       ),
+
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Expanded(
             child: Padding(
-              padding: const EdgeInsets.only(left: 16,right: 16,top: 16),
+              padding: const EdgeInsets.only(left: 15,right: 15,top: 15),
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(50),
                   color: blueDark,
                 ),
-                constraints: BoxConstraints.expand(height: 50),
                 child: TabBar(
                     controller: _tabcontroller,
                     labelColor: blueDark,
+                    labelStyle: TextStyle(
+                      color: blueDark,
+                      fontFamily: 'IRANSansFaNum',
+                      fontSize: 12,
+                    ),
                     unselectedLabelColor: white,
+                    unselectedLabelStyle: TextStyle(
+                      color: white,
+                      fontFamily: 'IRANSansFaNum',
+                      fontSize: 12,
+                    ),
                     tabs: [
                       Tab(
                         text: "اعلام خسارت",
@@ -101,7 +113,6 @@ class _InformationPageState extends State<InformationPage> with TickerProviderSt
                     Container(
                     ),
                     Container(
-                      child: Text("Articles Body"),
                     ),
                     Container(
                     ),
