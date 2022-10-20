@@ -10,12 +10,14 @@ class _InformationPageState extends State<InformationPage> {
 
   Color blueDark = Color.fromRGBO(28, 72, 112, 1);
   Color white = Color.fromRGBO(255, 255, 255, 1);
+  Color whitelight = Color.fromRGBO(234, 234, 234, 1);
+  Color gray = Color.fromRGBO(144, 144, 144, 1);
 
   @override
   Widget build(BuildContext context) {
     
     return Scaffold(
-      backgroundColor : white,
+      backgroundColor : whitelight,
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(84),
         child: AppBar(
@@ -46,6 +48,43 @@ class _InformationPageState extends State<InformationPage> {
             ),
           ],
         ),
+      ),
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(16),
+            child: Container(
+              color: white,
+              child: Row(
+                children: [
+                  IconButton(
+                    icon: Icon(
+                      Icons.search,
+                      color: gray,
+                    ),
+                    onPressed: (){},
+                  ),
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 70,right: 5),
+                      child: Container(
+                        child: Text(
+                          'شناسه پرونده را وارد کنید',
+                          style: TextStyle(
+                            color: gray,
+                            fontFamily: 'IRANSansFaNum',
+                            fontSize: 12,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
