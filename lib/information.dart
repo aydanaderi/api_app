@@ -65,7 +65,7 @@ class _InformationPageState extends State<InformationPage> with TickerProviderSt
         children: [
           Expanded(
             child: Padding(
-              padding: const EdgeInsets.only(left: 15,right: 15,top: 15),
+              padding: const EdgeInsets.only(left: 30,right: 30,top: 15),
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(50),
@@ -121,10 +121,11 @@ class _InformationPageState extends State<InformationPage> with TickerProviderSt
           ),
           Expanded(
             child: Padding(
-              padding: const EdgeInsets.only(left: 16,right: 16),
+              padding: const EdgeInsets.only(left: 15,right: 15),
               child: Container(
                 color: white,
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     IconButton(
                       icon: Icon(
@@ -133,22 +134,15 @@ class _InformationPageState extends State<InformationPage> with TickerProviderSt
                       ),
                       onPressed: (){},
                     ),
-                    Expanded(
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 70,right: 5),
-                        child: Container(
-                          child: Text(
-                            'شناسه پرونده را وارد کنید',
-                            style: TextStyle(
-                              color: gray,
-                              fontFamily: 'IRANSansFaNum',
-                              fontSize: 12,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        ),
+                    Text(
+                      'شناسه پرونده را وارد کنید',
+                      style: TextStyle(
+                        color: gray,
+                        fontFamily: 'IRANSansFaNum',
+                        fontSize: 12,
+                        fontWeight: FontWeight.w500,
                       ),
-                    )
+                    ),
                   ],
                 ),
               ),
