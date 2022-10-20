@@ -94,6 +94,33 @@ class _InformationPageState extends State<InformationPage> {
               color: white,
               child: Column(
                 children: [
+                  Container(
+                    child: Center(
+                      child: Stack(
+                        alignment: Alignment.center,
+                        children: [
+                          IconButton(
+                          icon: Icon(
+                          Icons.bookmark_sharp,
+                          color: blueDark,
+                          size: 50,
+                        ),
+                        onPressed: (){},
+                      ),
+                          Center(
+                            child: Text(
+                              'خودم',
+                              style: TextStyle(
+                                color: white,
+                                fontSize: 10,
+                                fontFamily: 'IRANSansFaNum',
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
                   Row(
                     children: [
                       SizedBox(width: 10),
