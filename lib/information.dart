@@ -13,17 +13,33 @@ class _InformationPageState extends State<InformationPage> {
 
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: blueDark,
-        title: Text(
-          'پرونده های من',
-          style: TextStyle(
-            color: white,
-            fontFamily: 'IRANSansFaNum',
-            fontSize: 18,
-            fontWeight: FontWeight.w500,
+      backgroundColor : white,
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(84),
+        child: AppBar(
+          backgroundColor: blueDark,
+          title: Center(
+            child: Text(
+              'پرونده های من',
+              style: TextStyle(
+                color: white,
+                fontFamily: 'IRANSansFaNum',
+                fontSize: 18,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
           ),
+          actions: [
+            IconButton(
+              icon: Icon(
+                Icons.menu
+              ),
+              color: white,
+              onPressed: (){},
+            ),
+          ],
         ),
       ),
     );
