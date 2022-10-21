@@ -23,29 +23,36 @@ class _InformationPageState extends State<InformationPage> with TickerProviderSt
   Color shadow = Color.fromRGBO(168, 166, 166, 0.24);
   bool loading = false;
   var index = 0;
-  List id =[''];
-  List name =[''];
-  List location = [''];
-  List number = [''];
-  List time = [''];
-  List date = [''];
-  List status = [''];
+  List<Map> userinfo =[
+    {
+      'id':'',
+      'name':'',
+      'location':'',
+      'number':'',
+      'time':'',
+      'date':'',
+      'status':'',
+    }
+  ];
 
   @override
   void initState() {
     ServiceApi.info().then((users) {
       for (var user in users!['results']) {
         setState(() {
-          id.add(user['order_id'].toString());
-          name.add(user['applicant_user_full_name'].toString());
-          number.add(user['applicant_user_phone_number'].toString());
-          location.add(user['visit_location'].toString());
-          date.add(user['visit_date'].toString());
-          time.add(user['visit_time'].toString());
-          status.add(user['status'].toString());
+          userinfo.add(
+              {
+                'id' : user['order_id'].toString(),
+                'name' : user['applicant_user_full_name'].toString(),
+                'location': user['applicant_user_phone_number'].toString(),
+                'number': user['visit_location'].toString(),
+                'time': user['visit_date'].toString(),
+                'date': user['visit_time'].toString(),
+                'status': user['status'].toString(),
+              }
+          );
           index++;
         });
-
       }
     });
     super.initState();
@@ -207,11 +214,10 @@ class _InformationPageState extends State<InformationPage> with TickerProviderSt
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          id[index],
+                          userinfo[index]['id'],
                           style: TextStyle(
                             color: grayinfo,
                             fontFamily: 'IRANSansFaNum',
-                            fontSize: 12,
                           ),
                         ),
                         Row(
@@ -241,11 +247,10 @@ class _InformationPageState extends State<InformationPage> with TickerProviderSt
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          name[index],
+                          userinfo[index]['name'],
                           style: TextStyle(
                             color: grayinfo,
                             fontFamily: 'IRANSansFaNum',
-                            fontSize: 12,
                           ),
                         ),
                         Row(
@@ -275,11 +280,10 @@ class _InformationPageState extends State<InformationPage> with TickerProviderSt
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          number[index],
+                          userinfo[index]['number'],
                           style: TextStyle(
                             color: grayinfo,
                             fontFamily: 'IRANSansFaNum',
-                            fontSize: 12,
                           ),
                         ),
                         Row(
@@ -310,11 +314,10 @@ class _InformationPageState extends State<InformationPage> with TickerProviderSt
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            location[index],
+                            userinfo[index]['location'],
                             style: TextStyle(
                               color: grayinfo,
                               fontFamily: 'IRANSansFaNum',
-                              fontSize: 8,
                             ),
                           ),
                           Row(
@@ -353,12 +356,10 @@ class _InformationPageState extends State<InformationPage> with TickerProviderSt
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                       Text(
-                        status[index],
+                        userinfo[index]['status'],
                         style: TextStyle(
                           color: grayinfo,
                           fontFamily: 'IRANSansFaNum',
-                          fontSize: 12,
-                          fontWeight: FontWeight.w500,
                         ),
                       ),
                       Row(
@@ -388,7 +389,7 @@ class _InformationPageState extends State<InformationPage> with TickerProviderSt
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          date[index]+time[index],
+                          userinfo[index]['date']+userinfo[index],
                           style: TextStyle(
                             color: grayinfo,
                             fontFamily: 'IRANSansFaNum',
