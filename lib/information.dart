@@ -76,7 +76,6 @@ class _InformationPageState extends State<InformationPage> with TickerProviderSt
               color: white,
               fontFamily: 'IRANSansFaNum',
               fontSize: 18,
-              fontWeight: FontWeight.w500,
             ),
           ),
         ),
@@ -99,11 +98,11 @@ class _InformationPageState extends State<InformationPage> with TickerProviderSt
         ],
       ),
 
-      body: Column(
-        children: [
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.only(left: 30,right: 30,top: 15),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(16),
               child: Container(
                 padding: EdgeInsets.zero,
                 decoration: BoxDecoration(
@@ -111,30 +110,30 @@ class _InformationPageState extends State<InformationPage> with TickerProviderSt
                   color: blueDark,
                 ),
                 child: TabBar(
-                    controller: _tabcontroller,
-                    labelColor: blueDark,
-                    labelStyle: TextStyle(
-                      color: blueDark,
-                      fontFamily: 'IRANSansFaNum',
-                      fontSize: 12,
+                  controller: _tabcontroller,
+                  labelColor: blueDark,
+                  labelStyle: TextStyle(
+                    color: blueDark,
+                    fontFamily: 'IRANSansFaNum',
+                    fontSize: 12,
+                  ),
+                  unselectedLabelColor: white,
+                  unselectedLabelStyle: TextStyle(
+                    color: white,
+                    fontFamily: 'IRANSansFaNum',
+                    fontSize: 12,
+                  ),
+                  tabs: [
+                    Tab(
+                      text: "اعلام خسارت",
                     ),
-                    unselectedLabelColor: white,
-                    unselectedLabelStyle: TextStyle(
-                      color: white,
-                      fontFamily: 'IRANSansFaNum',
-                      fontSize: 12,
+                    Tab(
+                      text: "بازدید بدنه",
                     ),
-                    tabs: [
-                      Tab(
-                        text: "اعلام خسارت",
-                      ),
-                      Tab(
-                        text: "بازدید بدنه",
-                      ),
-                      Tab(
-                        text: "صدور بیمه بدنه",
-                      ),
-                    ],
+                    Tab(
+                      text: "صدور بیمه بدنه",
+                    ),
+                  ],
                   indicatorPadding: EdgeInsets.zero,
                   labelPadding: EdgeInsets.zero,
                   indicator: ShapeDecoration(
@@ -145,25 +144,8 @@ class _InformationPageState extends State<InformationPage> with TickerProviderSt
                 ),
               ),
             ),
-          ),
-          Expanded(
-            child: Container(
-              padding: EdgeInsets.zero,
-              child: TabBarView(
-                  controller: _tabcontroller,
-                  children: [
-                    Container(
-                    ),
-                    Container(
-                    ),
-                    Container(
-                    ),
-                  ]),
-            ),
-          ),
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.only(left: 15,right: 15),
+            Padding(
+              padding: const EdgeInsets.all(16),
               child: Container(
                 color: white,
                 child: Row(
@@ -189,147 +171,47 @@ class _InformationPageState extends State<InformationPage> with TickerProviderSt
                 ),
               ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 15,right: 15,top: 15),
-            child: Container(
-              color: white,
-              child: Column(
-                children: [
-                  Container(
-                    alignment: Alignment.topLeft,
-                    child: IconButton(
-                      icon: Icon(
-                        Icons.bookmark_sharp,
-                        color: blueDark,
-                        size: 50,
+            Padding(
+              padding: const EdgeInsets.all(16),
+              child: Container(
+                color: white,
+                child: Column(
+                  children: [
+                    Container(
+                      alignment: Alignment.topLeft,
+                      child: IconButton(
+                        icon: Icon(
+                          Icons.bookmark_sharp,
+                          color: blueDark,
+                          size: 50,
+                        ),
+                        onPressed: (){},
                       ),
-                      onPressed: (){},
                     ),
-                  ),
-                  SizedBox(height: 5),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 10,right: 10),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          userinfo[index]['id'],
-                          style: TextStyle(
-                            color: grayinfo,
-                            fontFamily: 'IRANSansFaNum',
-                          ),
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Text(
-                              'شناسه پرونده',
-                              style: TextStyle(
-                                color: grayquestion,
-                                fontFamily: 'IRANSansFaNum',
-                                fontSize: 12,
-                              ),
-                            ),
-                            Icon(
-                              Icons.circle,
-                              size: 8,
-                              color: graydot,
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 10,right: 10),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          userinfo[index]['name'],
-                          style: TextStyle(
-                            color: grayinfo,
-                            fontFamily: 'IRANSansFaNum',
-                          ),
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Text(
-                              'نام مشتری ',
-                              style: TextStyle(
-                                color: grayquestion,
-                                fontFamily: 'IRANSansFaNum',
-                                fontSize: 12,
-                              ),
-                            ),
-                            Icon(
-                              Icons.circle,
-                              size: 8,
-                              color: graydot,
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 10,right: 10),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          userinfo[index]['number'],
-                          style: TextStyle(
-                            color: grayinfo,
-                            fontFamily: 'IRANSansFaNum',
-                          ),
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Text(
-                              'تلفن همراه',
-                              style: TextStyle(
-                                color: grayquestion,
-                                fontFamily: 'IRANSansFaNum',
-                                fontSize: 12,
-                              ),
-                            ),
-                            Icon(
-                              Icons.circle,
-                              size: 8,
-                              color: graydot,
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 10,right: 10),
-                    child: Container(
+                    SizedBox(height: 5),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10,right: 10),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text(
-                            userinfo[index]['location'],
-                            style: TextStyle(
-                              color: grayinfo,
-                              fontFamily: 'IRANSansFaNum',
+                          Expanded(
+                            child: Text(
+                              userinfo[index]['id'],
+                              style: TextStyle(
+                                color: grayinfo,
+                                fontFamily: 'IRANSansFaNum',
+                              ),
                             ),
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
                               Text(
-                                'محل بازدید ',
+                                'شناسه پرونده',
                                 style: TextStyle(
                                   color: grayquestion,
                                   fontFamily: 'IRANSansFaNum',
                                   fontSize: 12,
-                                  fontWeight: FontWeight.w400,
                                 ),
                               ),
                               Icon(
@@ -342,159 +224,277 @@ class _InformationPageState extends State<InformationPage> with TickerProviderSt
                         ],
                       ),
                     ),
-                  ),
-                  Container(
-                    decoration: BoxDecoration(
-                      color: whitecontainer,
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Column(
-                      children: [
                     Padding(
                       padding: const EdgeInsets.only(left: 10,right: 10),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                      Text(
-                        userinfo[index]['status'],
-                        style: TextStyle(
-                          color: grayinfo,
-                          fontFamily: 'IRANSansFaNum',
-                        ),
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          Text(
-                            'وضعیت پرونده',
-                            style: TextStyle(
-                              color: grayquestion,
-                              fontFamily: 'IRANSansFaNum',
-                              fontSize: 12,
-                            ),
-                          ),
-                          Icon(
-                            Icons.text_snippet,
-                            size: 19,
-                            color: graydot,
-                          ),
-                        ],
-                      ),
-                      ],
-                  ),
-                    ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 10,right: 10),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          userinfo[index]['date']+userinfo[index],
-                          style: TextStyle(
-                            color: grayinfo,
-                            fontFamily: 'IRANSansFaNum',
-                            fontSize: 8,
-                          ),
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Text(
-                              'زمان بازدید ',
+                          Expanded(
+                            child: Text(
+                              userinfo[index]['name'],
                               style: TextStyle(
-                                color: grayquestion,
+                                color: grayinfo,
                                 fontFamily: 'IRANSansFaNum',
-                                fontSize: 12,
                               ),
                             ),
-                            Icon(
-                              Icons.watch_later,
-                              size: 15,
-                              color: graydot,
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 15),
-                    child: Container(
-                      child: Row(
-                        children: [
-                          Column(
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
                             children: [
-                              HexagonWidget.pointy(
-                                width: 41,
-                                cornerRadius: 8,
-                                color: green,
-                                elevation: 8,
-                                child: Icon(
-                                  Icons.done,
-                                  color: white,
-                                ),
-                              ),
                               Text(
-                                'انجام شد',
+                                'نام مشتری ',
                                 style: TextStyle(
-                                  color: green,
+                                  color: grayquestion,
                                   fontFamily: 'IRANSansFaNum',
                                   fontSize: 12,
                                 ),
-                              )
-                            ],
-                          ),
-                          Expanded(
-                            child: Container(
-                              alignment: Alignment.center,
-                              child: ElevatedButton(
-                                style: ButtonStyle(
-                                    backgroundColor: MaterialStateProperty.all<Color>(white),
-                                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                                      RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.circular(8),
-                                          side: BorderSide(color: blueDark)
-                                      ),
-                                    )),
-                                child: Text(
-                                  'ورود به صفحه پرونده',
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                    color: blueDark,
-                                    fontFamily: 'IRANSansFaNum',
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                                onPressed: () {},
                               ),
-                            ),
+                              Icon(
+                                Icons.circle,
+                                size: 8,
+                                color: graydot,
+                              ),
+                            ],
                           ),
                         ],
                       ),
                     ),
-                  ),
-                ],
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10,right: 10),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Expanded(
+                            child: Text(
+                              userinfo[index]['number'],
+                              style: TextStyle(
+                                color: grayinfo,
+                                fontFamily: 'IRANSansFaNum',
+                              ),
+                            ),
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Text(
+                                'تلفن همراه',
+                                style: TextStyle(
+                                  color: grayquestion,
+                                  fontFamily: 'IRANSansFaNum',
+                                  fontSize: 12,
+                                ),
+                              ),
+                              Icon(
+                                Icons.circle,
+                                size: 8,
+                                color: graydot,
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10,right: 10),
+                      child: Container(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Expanded(
+                              child: Text(
+                                userinfo[index]['location'],
+                                style: TextStyle(
+                                  color: grayinfo,
+                                  fontFamily: 'IRANSansFaNum',
+                                ),
+                              ),
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Text(
+                                  'محل بازدید ',
+                                  style: TextStyle(
+                                    color: grayquestion,
+                                    fontFamily: 'IRANSansFaNum',
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ),
+                                Icon(
+                                  Icons.circle,
+                                  size: 8,
+                                  color: graydot,
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(16),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: whitecontainer,
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Column(
+                          children: [
+                            SizedBox(height: 10),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 10,right: 10),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Expanded(
+                                    child: Text(
+                                      userinfo[index]['status'],
+                                      style: TextStyle(
+                                        color: grayinfo,
+                                        fontFamily: 'IRANSansFaNum',
+                                      ),
+                                    ),
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.end,
+                                    children: [
+                                      Text(
+                                        'وضعیت پرونده',
+                                        style: TextStyle(
+                                          color: grayquestion,
+                                          fontFamily: 'IRANSansFaNum',
+                                          fontSize: 12,
+                                        ),
+                                      ),
+                                      Icon(
+                                        Icons.text_snippet,
+                                        size: 19,
+                                        color: graydot,
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                            SizedBox(height: 10),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 10,right: 10),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Expanded(
+                                    child: Text(
+                                      userinfo[index]['date']+userinfo[index]['time'],
+                                      style: TextStyle(
+                                        color: grayinfo,
+                                        fontFamily: 'IRANSansFaNum',
+                                        fontSize: 12,
+                                      ),
+                                    ),
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.end,
+                                    children: [
+                                      Text(
+                                        'زمان بازدید ',
+                                        style: TextStyle(
+                                          color: grayquestion,
+                                          fontFamily: 'IRANSansFaNum',
+                                          fontSize: 12,
+                                        ),
+                                      ),
+                                      Icon(
+                                        Icons.watch_later,
+                                        size: 15,
+                                        color: graydot,
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                            SizedBox(height: 10),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 15),
+                      child: Container(
+                        child: Row(
+                          children: [
+                            Column(
+                              children: [
+                                HexagonWidget.pointy(
+                                  width: 41,
+                                  cornerRadius: 8,
+                                  color: green,
+                                  elevation: 8,
+                                  child: Icon(
+                                    Icons.done,
+                                    color: white,
+                                  ),
+                                ),
+                                Text(
+                                  'انجام شد',
+                                  style: TextStyle(
+                                    color: green,
+                                    fontFamily: 'IRANSansFaNum',
+                                    fontSize: 12,
+                                  ),
+                                )
+                              ],
+                            ),
+                            Expanded(
+                              child: Container(
+                                alignment: Alignment.center,
+                                child: ElevatedButton(
+                                  style: ButtonStyle(
+                                      backgroundColor: MaterialStateProperty.all<Color>(white),
+                                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                                        RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.circular(8),
+                                            side: BorderSide(color: blueDark)
+                                        ),
+                                      )),
+                                  child: Text(
+                                    'ورود به صفحه پرونده',
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                      color: blueDark,
+                                      fontFamily: 'IRANSansFaNum',
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                  onPressed: () {},
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
-          ),
-          /*
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.only(top: 15),
-              child: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(15),
-                  color: white,
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Expanded(
-                      child: Column(
+            BottomAppBar(
+              color: white,
+              child: Padding(
+                padding: const EdgeInsets.all(16),
+                child: Card(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(25),
+                        topRight: Radius.circular(25),
+                      ),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Column(
                         children: [
                           IconButton(
                             icon: Icon(Icons.assignment_return_rounded),
@@ -512,9 +512,7 @@ class _InformationPageState extends State<InformationPage> with TickerProviderSt
                           )
                         ],
                       ),
-                    ),
-                    Expanded(
-                      child: Container(
+                      Container(
                         child: Column(
                           children: [
                             IconButton(
@@ -534,9 +532,7 @@ class _InformationPageState extends State<InformationPage> with TickerProviderSt
                           ],
                         ),
                       ),
-                    ),
-                    Expanded(
-                      child: Container(
+                      Container(
                         child: Column(
                           children: [
                             Container(
@@ -572,14 +568,13 @@ class _InformationPageState extends State<InformationPage> with TickerProviderSt
                           ],
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),
-          ),
-          */
-        ],
+          ],
+        ),
       ),
     );
   }
