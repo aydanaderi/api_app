@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hexagon/hexagon.dart';
+import 'models.dart';
+import 'api.dart';
 
 class InformationPage extends StatefulWidget {
 
@@ -20,6 +22,7 @@ class _InformationPageState extends State<InformationPage> with TickerProviderSt
   Color whitecontainer = Color.fromRGBO(246, 246, 248, 1);
   Color green = Color.fromRGBO(28, 174, 129, 1);
   Color shadow = Color.fromRGBO(168, 166, 166, 0.24);
+  List<User> _users = [];
 
 
   @override
@@ -439,7 +442,15 @@ class _InformationPageState extends State<InformationPage> with TickerProviderSt
                                     fontWeight: FontWeight.w500,
                                   ),
                                 ),
-                                onPressed: () {},
+                                onPressed: () {
+                                  ServiceApi.info().then((users){
+                                    _users = [];
+                                    for (var user in users!['data']) {
+                                      _users.add(User.fromJson(user));
+                                    }
+                                  });
+                                  print(_users);
+                                },
                               ),
                             ),
                           ),
@@ -451,102 +462,7 @@ class _InformationPageState extends State<InformationPage> with TickerProviderSt
               ),
             ),
           ),
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.only(top: 15),
-              child: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(15),
-                  color: white,
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Expanded(
-                      child: Column(
-                        children: [
-                          IconButton(
-                            icon: Icon(Icons.assignment_return_rounded),
-                            color: gray,
-                            onPressed: () {},
-                          ),
-                          Text(
-                            'ارسال نواقص',
-                            style: TextStyle(
-                              color: gray,
-                              fontFamily: 'IRANSansFaNum',
-                              fontSize: 10,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                    Expanded(
-                      child: Container(
-                        child: Column(
-                          children: [
-                            IconButton(
-                              icon: Icon(Icons.home_rounded),
-                              onPressed: () {},
-                              color: gray,
-                            ),
-                            Text(
-                              'خانه',
-                              style: TextStyle(
-                                color: gray,
-                                fontFamily: 'IRANSansFaNum',
-                                fontSize: 10,
-                                fontWeight: FontWeight.w500,
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      child: Container(
-                        child: Column(
-                          children: [
-                            Container(
-                              decoration: BoxDecoration(
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: shadow,
-                                    blurRadius: 150
-                                  ),
-                                ],
-                              ),
-                              child: HexagonWidget.pointy(
-                                width: 41,
-                                cornerRadius: 8,
-                                color: white,
-                                elevation: 8,
-                                child: IconButton(
-                                  icon: Icon(Icons.text_snippet),
-                                  onPressed: () {},
-                                  color: blueDark,
-                                ),
-                              ),
-                            ),
-                            Text(
-                              'پرونده های من',
-                              style: TextStyle(
-                                color: blueDark,
-                                fontFamily: 'IRANSansFaNum',
-                                fontSize: 10,
-                                fontWeight: FontWeight.w500,
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ),
+
         ],
       ),
     );
