@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hexagon/hexagon.dart';
+import 'appbar.dart';
 import 'api.dart';
 
 class InformationPage extends StatefulWidget {
@@ -21,7 +22,7 @@ class _InformationPageState extends State<InformationPage> with TickerProviderSt
   Color whitecontainer = Color.fromRGBO(246, 246, 248, 1);
   Color green = Color.fromRGBO(28, 174, 129, 1);
   Color shadow = Color.fromRGBO(168, 166, 166, 0.24);
-  bool loading = false;
+  String font = 'IRANSansFaNum';
   var index = 0;
   List<Map> userinfo =[
     {
@@ -37,6 +38,7 @@ class _InformationPageState extends State<InformationPage> with TickerProviderSt
 
   @override
   void initState() {
+    //get data and set in a list of map
     ServiceApi.info().then((users) {
       for (var user in users!['results']) {
         setState(() {
@@ -68,37 +70,7 @@ class _InformationPageState extends State<InformationPage> with TickerProviderSt
       backgroundColor : whitelight,
       resizeToAvoidBottomInset: false,
 
-      appBar: AppBar(
-        backgroundColor: blueDark,
-        title: Align(
-          alignment: Alignment.bottomCenter,
-          child: Text(
-            'پرونده های من',
-            style: TextStyle(
-              color: white,
-              fontFamily: 'IRANSansFaNum',
-              fontSize: 18,
-            ),
-          ),
-        ),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(
-            bottom: Radius.circular(25),
-          ),
-        ),
-        actions: [
-          Align(
-            alignment: Alignment.bottomRight,
-            child: IconButton(
-              icon: Icon(
-                  Icons.menu
-              ),
-              color: white,
-              onPressed: (){},
-            ),
-          ),
-        ],
-      ),
+      appBar: AppBars(),
 
       body: SingleChildScrollView(
         child: Column(
@@ -116,13 +88,13 @@ class _InformationPageState extends State<InformationPage> with TickerProviderSt
                   labelColor: blueDark,
                   labelStyle: TextStyle(
                     color: blueDark,
-                    fontFamily: 'IRANSansFaNum',
+                    fontFamily: font,
                     fontSize: 12,
                   ),
                   unselectedLabelColor: white,
                   unselectedLabelStyle: TextStyle(
                     color: white,
-                    fontFamily: 'IRANSansFaNum',
+                    fontFamily: font,
                     fontSize: 12,
                   ),
                   tabs: [
@@ -167,7 +139,7 @@ class _InformationPageState extends State<InformationPage> with TickerProviderSt
                       'شناسه پرونده را وارد کنید',
                       style: TextStyle(
                         color: gray,
-                        fontFamily: 'IRANSansFaNum',
+                        fontFamily: font,
                         fontSize: 12,
                         fontWeight: FontWeight.w500,
                       ),
@@ -189,38 +161,6 @@ class _InformationPageState extends State<InformationPage> with TickerProviderSt
                     child: Column(
                       children: [
                         SizedBox(height: 30),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Expanded(
-                              child: Text(
-                                userinfo[index]['id'],
-                                style: TextStyle(
-                                  color: grayinfo,
-                                  fontFamily: 'IRANSansFaNum',
-                                ),
-                              ),
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                Text(
-                                  'شناسه پرونده',
-                                  style: TextStyle(
-                                    color: grayquestion,
-                                    fontFamily: 'IRANSansFaNum',
-                                    fontSize: 12,
-                                  ),
-                                ),
-                                Icon(
-                                  Icons.circle,
-                                  size: 8,
-                                  color: graydot,
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
                         Padding(
                           padding: const EdgeInsets.only(left: 10,right: 10),
                           child: Row(
@@ -228,10 +168,10 @@ class _InformationPageState extends State<InformationPage> with TickerProviderSt
                             children: [
                               Expanded(
                                 child: Text(
-                                  userinfo[index]['name'],
+                                  userinfo[index]['id'],
                                   style: TextStyle(
                                     color: grayinfo,
-                                    fontFamily: 'IRANSansFaNum',
+                                    fontFamily: font,
                                   ),
                                 ),
                               ),
@@ -239,10 +179,10 @@ class _InformationPageState extends State<InformationPage> with TickerProviderSt
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
                                   Text(
-                                    'نام مشتری ',
+                                    'شناسه پرونده',
                                     style: TextStyle(
                                       color: grayquestion,
-                                      fontFamily: 'IRANSansFaNum',
+                                      fontFamily: font,
                                       fontSize: 12,
                                     ),
                                   ),
@@ -263,10 +203,11 @@ class _InformationPageState extends State<InformationPage> with TickerProviderSt
                             children: [
                               Expanded(
                                 child: Text(
-                                  userinfo[index]['number'],
+                                  userinfo[index]['name'],
                                   style: TextStyle(
                                     color: grayinfo,
-                                    fontFamily: 'IRANSansFaNum',
+                                    fontFamily: font,
+                                    fontSize: 12,
                                   ),
                                 ),
                               ),
@@ -274,13 +215,50 @@ class _InformationPageState extends State<InformationPage> with TickerProviderSt
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
                                   Text(
-                                    'تلفن همراه',
+                                    ' نام مشتری',
                                     style: TextStyle(
                                       color: grayquestion,
-                                      fontFamily: 'IRANSansFaNum',
+                                      fontFamily: font,
                                       fontSize: 12,
                                     ),
                                   ),
+                                  SizedBox(width: 10),
+                                  Icon(
+                                    Icons.circle,
+                                    size: 8,
+                                    color: graydot,
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 10,right: 10),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Expanded(
+                                child: Text(
+                                  userinfo[index]['number'],
+                                  style: TextStyle(
+                                    color: grayinfo,
+                                    fontFamily: font,
+                                  ),
+                                ),
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  Text(
+                                    ' تلفن همراه',
+                                    style: TextStyle(
+                                      color: grayquestion,
+                                      fontFamily: font,
+                                      fontSize: 12,
+                                    ),
+                                  ),
+                                  SizedBox(width: 10),
                                   Icon(
                                     Icons.circle,
                                     size: 8,
@@ -302,7 +280,8 @@ class _InformationPageState extends State<InformationPage> with TickerProviderSt
                                     userinfo[index]['location'],
                                     style: TextStyle(
                                       color: grayinfo,
-                                      fontFamily: 'IRANSansFaNum',
+                                      fontFamily: font,
+                                      fontSize: 12,
                                     ),
                                   ),
                                 ),
@@ -310,14 +289,15 @@ class _InformationPageState extends State<InformationPage> with TickerProviderSt
                                   mainAxisAlignment: MainAxisAlignment.end,
                                   children: [
                                     Text(
-                                      'محل بازدید ',
+                                      ' محل بازدید',
                                       style: TextStyle(
                                         color: grayquestion,
-                                        fontFamily: 'IRANSansFaNum',
+                                        fontFamily: font,
                                         fontSize: 12,
                                         fontWeight: FontWeight.w400,
                                       ),
                                     ),
+                                    SizedBox(width: 10),
                                     Icon(
                                       Icons.circle,
                                       size: 8,
@@ -349,7 +329,7 @@ class _InformationPageState extends State<InformationPage> with TickerProviderSt
                                           userinfo[index]['status'],
                                           style: TextStyle(
                                             color: grayinfo,
-                                            fontFamily: 'IRANSansFaNum',
+                                            fontFamily: font,
                                           ),
                                         ),
                                       ),
@@ -357,13 +337,14 @@ class _InformationPageState extends State<InformationPage> with TickerProviderSt
                                         mainAxisAlignment: MainAxisAlignment.end,
                                         children: [
                                           Text(
-                                            'وضعیت پرونده',
+                                            ' وضعیت پرونده',
                                             style: TextStyle(
                                               color: grayquestion,
-                                              fontFamily: 'IRANSansFaNum',
+                                              fontFamily: font,
                                               fontSize: 12,
                                             ),
                                           ),
+                                          SizedBox(width: 10),
                                           Icon(
                                             Icons.text_snippet,
                                             size: 19,
@@ -385,7 +366,7 @@ class _InformationPageState extends State<InformationPage> with TickerProviderSt
                                           userinfo[index]['date']+userinfo[index]['time'],
                                           style: TextStyle(
                                             color: grayinfo,
-                                            fontFamily: 'IRANSansFaNum',
+                                            fontFamily: font,
                                             fontSize: 12,
                                           ),
                                         ),
@@ -394,13 +375,14 @@ class _InformationPageState extends State<InformationPage> with TickerProviderSt
                                         mainAxisAlignment: MainAxisAlignment.end,
                                         children: [
                                           Text(
-                                            'زمان بازدید ',
+                                            ' زمان بازدید ',
                                             style: TextStyle(
                                               color: grayquestion,
-                                              fontFamily: 'IRANSansFaNum',
+                                              fontFamily: font,
                                               fontSize: 12,
                                             ),
                                           ),
+                                          SizedBox(width: 10),
                                           Icon(
                                             Icons.watch_later,
                                             size: 15,
@@ -437,7 +419,7 @@ class _InformationPageState extends State<InformationPage> with TickerProviderSt
                                       'انجام شد',
                                       style: TextStyle(
                                         color: green,
-                                        fontFamily: 'IRANSansFaNum',
+                                        fontFamily: font,
                                         fontSize: 12,
                                       ),
                                     )
@@ -460,7 +442,7 @@ class _InformationPageState extends State<InformationPage> with TickerProviderSt
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
                                           color: blueDark,
-                                          fontFamily: 'IRANSansFaNum',
+                                          fontFamily: font,
                                           fontSize: 12,
                                           fontWeight: FontWeight.w500,
                                         ),
@@ -495,7 +477,7 @@ class _InformationPageState extends State<InformationPage> with TickerProviderSt
                     'خودم',
                     style: TextStyle(
                       color: white,
-                      fontFamily: 'IRANSansFaNum',
+                      fontFamily: font,
                       fontSize: 10,
                     ),
                   ),
@@ -520,7 +502,7 @@ class _InformationPageState extends State<InformationPage> with TickerProviderSt
                             'ارسال نواقص',
                             style: TextStyle(
                               color: gray,
-                              fontFamily: 'IRANSansFaNum',
+                              fontFamily: font,
                               fontSize: 10,
                             ),
                           )
@@ -538,7 +520,7 @@ class _InformationPageState extends State<InformationPage> with TickerProviderSt
                               'خانه',
                               style: TextStyle(
                                 color: gray,
-                                fontFamily: 'IRANSansFaNum',
+                                fontFamily: font,
                                 fontSize: 10,
                                 fontWeight: FontWeight.w500,
                               ),
@@ -575,7 +557,7 @@ class _InformationPageState extends State<InformationPage> with TickerProviderSt
                               'پرونده های من',
                               style: TextStyle(
                                 color: blueDark,
-                                fontFamily: 'IRANSansFaNum',
+                                fontFamily: font,
                                 fontSize: 10,
                                 fontWeight: FontWeight.w500,
                               ),
