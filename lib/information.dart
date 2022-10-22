@@ -44,7 +44,7 @@ class _InformationPageState extends State<InformationPage> with TickerProviderSt
                 'status': user['status'].toString(),
               }
           );
-          index++;
+          index++; //next user
         });
       }
     });
