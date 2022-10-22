@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:hexagon/hexagon.dart';
 import 'appbar.dart';
 import 'api.dart';
+import 'colors.dart';
+import 'textstyle.dart';
 
 class InformationPage extends StatefulWidget {
 
@@ -12,17 +14,6 @@ class InformationPage extends StatefulWidget {
 
 class _InformationPageState extends State<InformationPage> with TickerProviderStateMixin{
 
-  Color blueDark = Color.fromRGBO(28, 72, 112, 1);
-  Color white = Color.fromRGBO(255, 255, 255, 1);
-  Color whitelight = Color.fromRGBO(234, 234, 234, 1);
-  Color gray = Color.fromRGBO(144, 144, 144, 1);
-  Color graydot = Color.fromRGBO(183, 183, 183, 1);
-  Color grayquestion = Color.fromRGBO(112, 112, 112, 1);
-  Color grayinfo = Color.fromRGBO(80, 80, 80, 1);
-  Color whitecontainer = Color.fromRGBO(246, 246, 248, 1);
-  Color green = Color.fromRGBO(28, 174, 129, 1);
-  Color shadow = Color.fromRGBO(168, 166, 166, 0.24);
-  String font = 'IRANSansFaNum';
   var index = 0;
   List<Map> userinfo =[
     {
@@ -71,7 +62,7 @@ class _InformationPageState extends State<InformationPage> with TickerProviderSt
       resizeToAvoidBottomInset: false,
 
       appBar: AppBars(),
-
+      //using the scroll to fix the size and fix the error
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -86,17 +77,9 @@ class _InformationPageState extends State<InformationPage> with TickerProviderSt
                 child: TabBar(
                   controller: _tabcontroller,
                   labelColor: blueDark,
-                  labelStyle: TextStyle(
-                    color: blueDark,
-                    fontFamily: font,
-                    fontSize: 12,
-                  ),
+                  labelStyle: textStyle6,
                   unselectedLabelColor: white,
-                  unselectedLabelStyle: TextStyle(
-                    color: white,
-                    fontFamily: font,
-                    fontSize: 12,
-                  ),
+                  unselectedLabelStyle: textStyle7,
                   tabs: [
                     Tab(
                       text: "اعلام خسارت",
@@ -137,12 +120,7 @@ class _InformationPageState extends State<InformationPage> with TickerProviderSt
                     ),
                     Text(
                       'شناسه پرونده را وارد کنید',
-                      style: TextStyle(
-                        color: gray,
-                        fontFamily: font,
-                        fontSize: 12,
-                        fontWeight: FontWeight.w500,
-                      ),
+                      style: textStyle1
                     ),
                   ],
                 ),
@@ -169,10 +147,7 @@ class _InformationPageState extends State<InformationPage> with TickerProviderSt
                               Expanded(
                                 child: Text(
                                   userinfo[index]['id'],
-                                  style: TextStyle(
-                                    color: grayinfo,
-                                    fontFamily: font,
-                                  ),
+                                  style: textStyle4,
                                 ),
                               ),
                               Row(
@@ -180,11 +155,7 @@ class _InformationPageState extends State<InformationPage> with TickerProviderSt
                                 children: [
                                   Text(
                                     'شناسه پرونده',
-                                    style: TextStyle(
-                                      color: grayquestion,
-                                      fontFamily: font,
-                                      fontSize: 12,
-                                    ),
+                                    style: textStyle3,
                                   ),
                                   Icon(
                                     Icons.circle,
@@ -204,11 +175,7 @@ class _InformationPageState extends State<InformationPage> with TickerProviderSt
                               Expanded(
                                 child: Text(
                                   userinfo[index]['name'],
-                                  style: TextStyle(
-                                    color: grayinfo,
-                                    fontFamily: font,
-                                    fontSize: 12,
-                                  ),
+                                  style: textStyle4,
                                 ),
                               ),
                               Row(
@@ -216,11 +183,7 @@ class _InformationPageState extends State<InformationPage> with TickerProviderSt
                                 children: [
                                   Text(
                                     ' نام مشتری',
-                                    style: TextStyle(
-                                      color: grayquestion,
-                                      fontFamily: font,
-                                      fontSize: 12,
-                                    ),
+                                    style: textStyle3
                                   ),
                                   SizedBox(width: 10),
                                   Icon(
@@ -241,10 +204,7 @@ class _InformationPageState extends State<InformationPage> with TickerProviderSt
                               Expanded(
                                 child: Text(
                                   userinfo[index]['number'],
-                                  style: TextStyle(
-                                    color: grayinfo,
-                                    fontFamily: font,
-                                  ),
+                                  style: textStyle4,
                                 ),
                               ),
                               Row(
@@ -252,11 +212,7 @@ class _InformationPageState extends State<InformationPage> with TickerProviderSt
                                 children: [
                                   Text(
                                     ' تلفن همراه',
-                                    style: TextStyle(
-                                      color: grayquestion,
-                                      fontFamily: font,
-                                      fontSize: 12,
-                                    ),
+                                    style: textStyle3,
                                   ),
                                   SizedBox(width: 10),
                                   Icon(
@@ -278,11 +234,7 @@ class _InformationPageState extends State<InformationPage> with TickerProviderSt
                                 Expanded(
                                   child: Text(
                                     userinfo[index]['location'],
-                                    style: TextStyle(
-                                      color: grayinfo,
-                                      fontFamily: font,
-                                      fontSize: 12,
-                                    ),
+                                    style: textStyle4,
                                   ),
                                 ),
                                 Row(
@@ -290,12 +242,7 @@ class _InformationPageState extends State<InformationPage> with TickerProviderSt
                                   children: [
                                     Text(
                                       ' محل بازدید',
-                                      style: TextStyle(
-                                        color: grayquestion,
-                                        fontFamily: font,
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.w400,
-                                      ),
+                                      style: textStyle3,
                                     ),
                                     SizedBox(width: 10),
                                     Icon(
@@ -327,10 +274,7 @@ class _InformationPageState extends State<InformationPage> with TickerProviderSt
                                       Expanded(
                                         child: Text(
                                           userinfo[index]['status'],
-                                          style: TextStyle(
-                                            color: grayinfo,
-                                            fontFamily: font,
-                                          ),
+                                          style: textStyle4,
                                         ),
                                       ),
                                       Row(
@@ -338,11 +282,7 @@ class _InformationPageState extends State<InformationPage> with TickerProviderSt
                                         children: [
                                           Text(
                                             ' وضعیت پرونده',
-                                            style: TextStyle(
-                                              color: grayquestion,
-                                              fontFamily: font,
-                                              fontSize: 12,
-                                            ),
+                                            style: textStyle3,
                                           ),
                                           SizedBox(width: 10),
                                           Icon(
@@ -364,11 +304,7 @@ class _InformationPageState extends State<InformationPage> with TickerProviderSt
                                       Expanded(
                                         child: Text(
                                           userinfo[index]['date']+userinfo[index]['time'],
-                                          style: TextStyle(
-                                            color: grayinfo,
-                                            fontFamily: font,
-                                            fontSize: 12,
-                                          ),
+                                          style: textStyle4,
                                         ),
                                       ),
                                       Row(
@@ -376,11 +312,7 @@ class _InformationPageState extends State<InformationPage> with TickerProviderSt
                                         children: [
                                           Text(
                                             ' زمان بازدید ',
-                                            style: TextStyle(
-                                              color: grayquestion,
-                                              fontFamily: font,
-                                              fontSize: 12,
-                                            ),
+                                            style: textStyle3,
                                           ),
                                           SizedBox(width: 10),
                                           Icon(
@@ -417,11 +349,7 @@ class _InformationPageState extends State<InformationPage> with TickerProviderSt
                                     ),
                                     Text(
                                       'انجام شد',
-                                      style: TextStyle(
-                                        color: green,
-                                        fontFamily: font,
-                                        fontSize: 12,
-                                      ),
+                                      style: textStyle5,
                                     )
                                   ],
                                 ),
@@ -440,12 +368,7 @@ class _InformationPageState extends State<InformationPage> with TickerProviderSt
                                       child: Text(
                                         'ورود به صفحه پرونده',
                                         textAlign: TextAlign.center,
-                                        style: TextStyle(
-                                          color: blueDark,
-                                          fontFamily: font,
-                                          fontSize: 12,
-                                          fontWeight: FontWeight.w500,
-                                        ),
+                                        style: textStyle6,
                                       ),
                                       onPressed: () {},
                                     ),
@@ -475,11 +398,7 @@ class _InformationPageState extends State<InformationPage> with TickerProviderSt
                   widthFactor: 3,
                   child: Text(
                     'خودم',
-                    style: TextStyle(
-                      color: white,
-                      fontFamily: font,
-                      fontSize: 10,
-                    ),
+                    style: textStyle8,
                   ),
                 ),
               ],
@@ -500,11 +419,7 @@ class _InformationPageState extends State<InformationPage> with TickerProviderSt
                           ),
                           Text(
                             'ارسال نواقص',
-                            style: TextStyle(
-                              color: gray,
-                              fontFamily: font,
-                              fontSize: 10,
-                            ),
+                            style: textStyle2,
                           )
                         ],
                       ),
@@ -518,12 +433,7 @@ class _InformationPageState extends State<InformationPage> with TickerProviderSt
                             ),
                             Text(
                               'خانه',
-                              style: TextStyle(
-                                color: gray,
-                                fontFamily: font,
-                                fontSize: 10,
-                                fontWeight: FontWeight.w500,
-                              ),
+                              style: textStyle2,
                             )
                           ],
                         ),
@@ -555,12 +465,7 @@ class _InformationPageState extends State<InformationPage> with TickerProviderSt
                             SizedBox(height: 5),
                             Text(
                               'پرونده های من',
-                              style: TextStyle(
-                                color: blueDark,
-                                fontFamily: font,
-                                fontSize: 10,
-                                fontWeight: FontWeight.w500,
-                              ),
+                              style: textStyle9,
                             )
                           ],
                         ),
