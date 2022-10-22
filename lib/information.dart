@@ -17,13 +17,13 @@ class _InformationPageState extends State<InformationPage> with TickerProviderSt
   var index = 0;
   List<Map> userinfo =[
     {
-      'id':'',
-      'name':'',
-      'location':'',
-      'number':'',
-      'time':'',
-      'date':'',
-      'status':'',
+      'id':'0iajz4o474',
+      'name':'محمدعلی مراد بیگ زاده',
+      'location':'شهرک غرب، فاز 4، زرافشان، خیابان شجریان، پلاک 13، واحد 8',
+      'number':'09127825671',
+      'time':'14:11',
+      'date':'1401-06-01',
+      'status':'تأیید شده توسط نماینده',
     }
   ];
 
